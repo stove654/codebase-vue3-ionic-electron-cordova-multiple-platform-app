@@ -7,9 +7,17 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "electron:build": "vue-cli-service electron:build",
+    "electron:serve": "vue-cli-service electron:serve",
+    "postinstall": "electron-builder install-app-deps",
+    "postuninstall": "electron-builder install-app-deps",
+    "cordova:build:ios": "vue-cli-service build && cordova build ios"
   },
+  "main": "background.js",
   "dependencies": {
+    "@ionic/vue": "^5.4.4",
+    "@ionic/vue-router": "^5.4.4",
     "core-js": "^3.6.5",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.0",
@@ -18,6 +26,7 @@
     "vuex": "^4.0.0-0"
   },
   "devDependencies": {
+    "@types/electron-devtools-installer": "^2.2.0",
     "@types/jest": "^24.0.19",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
@@ -33,11 +42,26 @@
     "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-typescript": "^5.0.2",
     "@vue/test-utils": "^2.0.0-0",
+    "copy-webpack-plugin": "^6.3.0",
+    "copyfiles": "^2.4.0",
+    "cordova-ios": "^6.1.1",
+    "electron": "^9.0.0",
+    "electron-devtools-installer": "^3.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0-0",
     "node-sass": "^4.12.0",
+    "path": "^0.12.7",
     "sass-loader": "^8.0.2",
+    "spectron": "11.0.0",
+    "trash-cli": "^3.1.0",
     "typescript": "~3.9.3",
-    "vue-jest": "^5.0.0-0"
+    "vue-cli-plugin-electron-builder": "~2.0.0-rc.5",
+    "vue-jest": "^5.0.0-0",
+    "vue-loader-v16": "^16.0.0-beta.5.4"
+  },
+  "cordova": {
+    "platforms": [
+      "ios"
+    ]
   }
 }
